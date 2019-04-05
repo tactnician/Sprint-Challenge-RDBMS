@@ -1,15 +1,20 @@
 const express = require('express');
-const server = express(); 
+
+const server = express();
+
+const helmet = require('helmet');
+
+// const router = require(' '); 
+server.use(helmet());
+server.use(express.json());
 
 
-server.use(express.json);
-
-
-//sanity check 
 server.get('/', (req, res) => {
     res.send(`
-        <h1>API</h1>
+        <h1>Api Portal</h1>
     `)
 })
 
-module.exports = server;
+
+
+module.exports = server; 
