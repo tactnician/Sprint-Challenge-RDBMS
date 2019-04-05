@@ -4,7 +4,8 @@ const server = express();
 
 const helmet = require('helmet');
 
-// const router = require(' '); 
+const router = require('../router/router'); 
+
 server.use(helmet());
 server.use(express.json());
 
@@ -15,6 +16,7 @@ server.get('/', (req, res) => {
     `)
 })
 
+server.use('/api/projects', router);
 
 
 module.exports = server; 
