@@ -15,8 +15,18 @@ function get() {
 
 function getById(id) {
     return db('projects')
-    .where({id})
-    .first()
+            .where({ id })
+            .first()
+            .then(project => {
+                if (project) {
+                    return getProjectActions(id).then(actions => {
+                        project.actions = actions;
+                        return project;
+                    });
+                } else {
+                    return null;
+                }
+            })
 };
 
 function insert(project) {

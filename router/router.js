@@ -21,7 +21,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
     try {
         // const {id} =  await req.params.id;
-        const resourceArr = await Projects.get(req.params.id);
+        const resourceArr = await Projects.getById(req.params.id);
         console.log(" resource Array :" , resourceArr);
         res.status(200).json(resourceArr);
     } catch (error) {
